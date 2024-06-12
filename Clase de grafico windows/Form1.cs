@@ -2,6 +2,9 @@ namespace Clase_de_grafico_windows
 {
     public partial class Form1 : Form
     {
+        Double valorResultado = 0;
+        String operador = "";
+        bool isOperador = false;
         public Form1()
         {
             InitializeComponent();
@@ -28,9 +31,25 @@ namespace Clase_de_grafico_windows
             textBoxRESULTADO.Text = textBoxRESULTADO.Text + "7";
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void operador_Click(object sender, EventArgs e)
         {
+            Button button = (Button)sender;
 
+            if (valorResultado != 0)
+            {
+                btnIgual.PerformClick();
+                operador = button.Text;
+                label1.Text = valorResultado + " " + operador;
+                isOperador = true;
+            }
+            else
+            {
+
+                operador = button.Text;
+                valorResultado = Double.Parse(textBoxRESULTADO.Text);
+                label1.Text = valorResultado + " " + operador;
+                isOperador = true;
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -80,6 +99,38 @@ namespace Clase_de_grafico_windows
             /*corresponde al boton 0*/
             Button button = (Button)sender;
             textBoxRESULTADO.Text = textBoxRESULTADO.Text + "0";
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            switch (operador)
+            {
+
+                case "+":
+                    textBoxRESULTADO.Text = (valorResultado + Double.Parse(textBoxRESULTADO.Text)).ToString();
+                    break;
+                case "-":
+                    textBoxRESULTADO.Text = (valorResultado - Double.Parse(textBoxRESULTADO.Text)).ToString();
+                    break;
+                case "*":
+                    textBoxRESULTADO.Text = (valorResultado * Double.Parse(textBoxRESULTADO.Text)).ToString();
+                    break;
+                case "/":
+                    textBoxRESULTADO.Text = (valorResultado / Double.Parse(textBoxRESULTADO.Text)).ToString();
+                    break;
+                default:
+                    break;
+
+            }
+
+            valorResultado = Double.Parse(textBoxRESULTADO.Text);
+            label1.Text = "";
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

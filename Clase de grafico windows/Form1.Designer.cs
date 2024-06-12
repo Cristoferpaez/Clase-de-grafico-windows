@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
@@ -43,19 +42,10 @@
             button13 = new Button();
             button15 = new Button();
             button16 = new Button();
-            button17 = new Button();
-            checkBox1 = new CheckBox();
+            btnIgual = new Button();
             textBoxRESULTADO = new TextBox();
+            label1 = new Label();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.Location = new Point(0, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -95,7 +85,7 @@
             button5.TabIndex = 4;
             button5.Text = "+";
             button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            button5.Click += operador_Click;
             // 
             // button6
             // 
@@ -175,6 +165,7 @@
             button13.TabIndex = 12;
             button13.Text = "-";
             button13.UseVisualStyleBackColor = true;
+            button13.Click += operador_Click;
             // 
             // button15
             // 
@@ -184,6 +175,7 @@
             button15.TabIndex = 14;
             button15.Text = "*";
             button15.UseVisualStyleBackColor = true;
+            button15.Click += operador_Click;
             // 
             // button16
             // 
@@ -193,25 +185,17 @@
             button16.TabIndex = 15;
             button16.Text = "/";
             button16.UseVisualStyleBackColor = true;
+            button16.Click += operador_Click;
             // 
-            // button17
+            // btnIgual
             // 
-            button17.Location = new Point(363, 236);
-            button17.Name = "button17";
-            button17.Size = new Size(75, 23);
-            button17.TabIndex = 16;
-            button17.Text = "=";
-            button17.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(0, 0);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(83, 19);
-            checkBox1.TabIndex = 17;
-            checkBox1.Text = "checkBox1";
-            checkBox1.UseVisualStyleBackColor = true;
+            btnIgual.Location = new Point(363, 236);
+            btnIgual.Name = "btnIgual";
+            btnIgual.Size = new Size(75, 23);
+            btnIgual.TabIndex = 16;
+            btnIgual.Text = "=";
+            btnIgual.UseVisualStyleBackColor = true;
+            btnIgual.Click += button17_Click;
             // 
             // textBoxRESULTADO
             // 
@@ -220,14 +204,23 @@
             textBoxRESULTADO.Size = new Size(373, 23);
             textBoxRESULTADO.TabIndex = 19;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(325, 62);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 20;
+            label1.Text = "label1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
             Controls.Add(textBoxRESULTADO);
-            Controls.Add(checkBox1);
-            Controls.Add(button17);
+            Controls.Add(btnIgual);
             Controls.Add(button16);
             Controls.Add(button15);
             Controls.Add(button13);
@@ -242,16 +235,14 @@
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
-            Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button button1;
         private Button button2;
         private Button button3;
         private Button button4;
@@ -266,8 +257,8 @@
         private Button button13;
         private Button button15;
         private Button button16;
-        private Button button17;
-        private CheckBox checkBox1;
+        private Button btnIgual;
         private TextBox textBoxRESULTADO;
+        private Label label1;
     }
 }
